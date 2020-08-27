@@ -1,0 +1,20 @@
+{
+  "name": "ReactAvanzado",
+  "version": "1.0.0",
+  "description": "¡Sígueme en Youtube! https://www.youtube.com/midudev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Felichz/Petgram.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Felichz/Petgram/issues"
+  },
+  "homepage": "https://github.com/Felichz/Petgram#readme"
+}
