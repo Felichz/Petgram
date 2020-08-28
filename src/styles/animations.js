@@ -16,3 +16,26 @@ export const fadeIn = ({ time = '1s', type = 'ease' } = {}) =>
     css`
         animation: ${time} ${fadeInKeyframes} ${type};
     `;
+
+const appearFromTopKeyframes = (from, to) => {
+    return keyframes`
+    from {
+        top: ${from};
+    }
+
+    to {
+        top: ${to};
+    }
+`;
+};
+
+export const appearFromTop = ({
+    time = '1s',
+    easing = 'cubic-bezier(.18,.89,.32,1.28)',
+    from,
+    to,
+} = {}) =>
+    css`
+        animation: ${time} ${appearFromTopKeyframes(from, to)} ${easing},
+            ${time} ${fadeInKeyframes} ease;
+    `;
