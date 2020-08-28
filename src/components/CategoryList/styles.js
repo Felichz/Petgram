@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { appearFromTop, fadeIn } from '../../styles/animations';
-import { css, keyframes } from 'styled-components';
+import { css } from 'styled-components';
 
 export const List = styled.ul`
     display: flex;

@@ -1,6 +1,11 @@
 {
-    "extends": ["plugin:prettier/recommended", "prettier/react"],
-    "plugins": ["prettier"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "prettier/react"
+    ],
+    "plugins": ["react", "prettier"],
     "parser": "babel-eslint",
     "rules": {
         "prettier/prettier": [
@@ -8,6 +13,19 @@
             {
                 "endOfLine": "auto"
             }
-        ]
+        ],
+        "react/prop-types": 0
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "globals": {
+        "document": false
     }
 }

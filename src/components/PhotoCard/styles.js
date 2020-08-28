@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-// import { fadeIn } from '../../styles/animations';
+import { fadeIn } from '../../styles/animations';
 
 export const Article = styled.article`
     padding: 0 10px;
+    min-height: 200px;
 `;
 
 export const ImgWrapper = styled.div`
@@ -22,7 +23,8 @@ export const ImgWrapper = styled.div`
         position: absolute;
         top: 0;
         width: 100%;
-        /* ${fadeIn('5s')} */
+
+        ${fadeIn()}
     }
 `;
 
