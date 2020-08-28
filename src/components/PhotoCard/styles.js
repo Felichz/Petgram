@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fadeIn } from '../../styles/animations';
+// import { fadeIn } from '../../styles/animations';
 
 export const Article = styled.article`
     padding: 0 10px;
@@ -16,15 +16,13 @@ export const ImgWrapper = styled.div`
     box-shadow: 7px 8px 10px rgba(0, 0, 0, 0.3),
         inset 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
 
-    ${fadeIn({ time: '2s' })}
-
     img {
         height: 100%;
         object-fit: cover;
         position: absolute;
         top: 0;
         width: 100%;
-        ${fadeIn()}
+        /* ${fadeIn('5s')} */
     }
 `;
 

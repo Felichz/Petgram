@@ -36,6 +36,5 @@ export const appearFromTop = ({
     to,
 } = {}) =>
     css`
-        animation: ${time} ${appearFromTopKeyframes(from, to)} ${easing},
-            ${time} ${fadeInKeyframes} ease;
+        animation: ${time} ${appearFromTopKeyframes(from, to)} ${easing};
     `;
