@@ -16,32 +16,38 @@ import Context from './Context';
 
 export const App = () => {
     return (
-        <Scrollbars style={{ height: '100vh', width: '100%' }} autoHide={true}>
+        <>
             <GlobalStyles />
-            <Logo />
-            <CategoryList />
-            <Router>
-                <Home path="/" />
-                <Home path="/pet/:categoryId" />
-                <Detail path="/detail/:petId" />
-            </Router>
-            <Context.Consumer>
-                {({ isAuth }) =>
-                    isAuth ? (
-                        <Router>
-                            <Favs path="/favs" />
-                            <User path="/user" />
-                        </Router>
-                    ) : (
-                        <Router>
-                            <NotRegisteredUser path="/favs" />
-                            <NotRegisteredUser path="/user" />
-                        </Router>
-                    )
-                }
-            </Context.Consumer>
+
+            <Scrollbars
+                style={{ height: 'calc(100vh - 50px)', width: '100%' }}
+                autoHide={true}
+            >
+                <Logo />
+                <CategoryList />
+                <Router>
+                    <Home path="/" />
+                    <Home path="/pet/:categoryId" />
+                    <Detail path="/detail/:petId" />
+                </Router>
+                <Context.Consumer>
+                    {({ isAuth }) =>
+                        isAuth ? (
+                            <Router>
+                                <Favs path="/favs" />
+                                <User path="/user" />
+                            </Router>
+                        ) : (
+                            <Router>
+                                <NotRegisteredUser path="/favs" />
+                                <NotRegisteredUser path="/user" />
+                            </Router>
+                        )
+                    }
+                </Context.Consumer>
+            </Scrollbars>
 
             <NavBar />
-        </Scrollbars>
+        </>
     );
 };
