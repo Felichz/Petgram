@@ -1,9 +1,9 @@
 import React from 'react';
-import { Anchor, ImgWrapper } from './styles';
+import { Link, ImgWrapper } from './styles';
 
 export const Category = ({ cover, path, emoji = '?' }) => (
-    <Anchor href={path}>
+    <Link to={path}>
         <ImgWrapper>{cover && <img src={cover} />}</ImgWrapper>
         {emoji}
-    </Anchor>
+    </Link>
 );

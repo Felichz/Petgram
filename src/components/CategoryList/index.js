@@ -56,7 +56,7 @@ export const CategoryList = () => {
         <List fixed={fixed}>
             {categoriesArray.map((category, i) => (
                 <li key={i}>
-                    <Category {...category} />
+                    <Category {...category} path={`/pet/${category.id}`} />
                 </li>
             ))}
         </List>

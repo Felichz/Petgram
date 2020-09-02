@@ -1,42 +1,32 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 
-import { Article, ImgWrapper, Button } from './styles';
-import { MdFavoriteBorder } from 'react-icons/md';
+import { Article, ImgWrapper, Img } from './styles';
+import { FavButton } from '../FavButton';
 
-const DEFAULT_IMAGE =
-    'https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60';
+import { useSeenInScreen } from '../../hooks';
 
-export const PhotoCard = ({ id, src = DEFAULT_IMAGE, likes = 0 }) => {
-    const cardRef = useRef(null);
-    const [show, setShow] = useState(false);
+import { Link } from '@reach/router';
 
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            const { isIntersecting } = entries[0];
-
-            if (isIntersecting) {
-                setShow(true);
-                observer.disconnect();
-            }
-        });
-        observer.observe(cardRef.current);
-    }, [cardRef]);
+export const PhotoCard = ({ id, src = '', likes = 0, liked, toggleLike }) => {
+    const [imgLoaded, setImgLoaded] = useState(false),
+        [show, cardRef] = useSeenInScreen();
 
     return (
         <Article ref={cardRef}>
             {show && (
-                <>
-                    <a href={`/detail/${id}`}>
-                        <ImgWrapper>
-                            <img src={src}></img>
-                        </ImgWrapper>
-                    </a>
-                    <Button>
-                        <MdFavoriteBorder size="32px" />
-                        {likes} likes!
-                    </Button>
-                </>
+                <Link to={`/detail/${id}`}>
+                    <ImgWrapper>
+                        <Img
+                            src={src}
+                            onLoad={() => {
+                                setImgLoaded(true);
+                            }}
+                            loaded={imgLoaded}
+                        ></Img>
+                    </ImgWrapper>
+                </Link>
             )}
+            <FavButton likes={likes} liked={liked} onClick={toggleLike} />
         </Article>
     );
 };
