@@ -17,7 +17,7 @@ export const fadeIn = ({ time = '1s', type = 'ease' } = {}) =>
         animation: ${time} ${fadeInKeyframes} ${type};
     `;
 
-const appearFromTopKeyframes = (from, to) => {
+const bounceTranslationKeyframes = (from, to) => {
     return keyframes`
     from {
         top: ${from};
@@ -29,12 +29,12 @@ const appearFromTopKeyframes = (from, to) => {
 `;
 };
 
-export const appearFromTop = ({
+export const bounceTranslation = ({
     time = '1s',
     easing = 'cubic-bezier(.18,.89,.32,1.28)',
     from,
     to,
 } = {}) =>
     css`
-        animation: ${time} ${appearFromTopKeyframes(from, to)} ${easing};
+        animation: ${time} ${bounceTranslationKeyframes(from, to)} ${easing};
     `;

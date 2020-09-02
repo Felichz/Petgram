@@ -2,6 +2,7 @@ import React from 'react';
 import { Router } from '@reach/router';
 import { GlobalStyles } from './styles/globalStyles';
 
+import { Scrollbars } from 'react-custom-scrollbars';
 import { Logo } from './components/Logo';
 import { CategoryList } from './components/CategoryList/';
 import { Home } from './pages/Home';
@@ -15,7 +16,7 @@ import Context from './Context';
 
 export const App = () => {
     return (
-        <>
+        <Scrollbars style={{ height: '100vh', width: '100%' }} autoHide={true}>
             <GlobalStyles />
             <Logo />
             <CategoryList />
@@ -41,6 +42,6 @@ export const App = () => {
             </Context.Consumer>
 
             <NavBar />
-        </>
+        </Scrollbars>
     );
 };

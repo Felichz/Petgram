@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useIsVisible } from '../../hooks/useIsVisible';
 import NProgress from 'nprogress';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 import { Category } from '../Category';
-
-import { List } from './styles';
+import { List, FixedCategories } from './styles';
 
 function useCategoriesData() {
     const [categories, setCategories] = useState([]);
@@ -33,27 +34,31 @@ function useCategoriesData() {
 export const CategoryList = () => {
     const { categories, loading } = useCategoriesData();
 
-    const [showFixed, setShowFixed] = useState(false);
+    const [isVisible, elementRef] = useIsVisible();
 
-    useEffect(() => {
-        const onScroll = () => {
-            const currentShowFixed = window.scrollY > 200;
-            if (showFixed !== currentShowFixed) {
-                setShowFixed(currentShowFixed);
-            }
-        };
+    if (elementRef.current) {
+        console.log(elementRef.current);
+    }
 
-        document.addEventListener('scroll', onScroll);
+    // useEffect(() => {
+    //     const onScroll = () => {
+    //         const currentShowFixed = window.scrollY > 200;
+    //         if (showFixed !== currentShowFixed) {
+    //             setShowFixed(currentShowFixed);
+    //         }
+    //     };
 
-        return () => {
-            document.removeEventListener('scroll', onScroll);
-        };
-    });
+    //     document.addEventListener('scroll', onScroll);
+
+    //     return () => {
+    //         document.removeEventListener('scroll', onScroll);
+    //     };
+    // });
 
     const categoriesArray = loading ? [1, 2, 3, 4, 5] : categories;
 
-    const renderList = (fixed) => (
-        <List fixed={fixed}>
+    const renderList = () => (
+        <List>
             {categoriesArray.map((category, i) => (
                 <li key={i}>
                     <Category {...category} path={`/pet/${category.id}`} />
@@ -64,8 +69,13 @@ export const CategoryList = () => {
 
     return (
         <>
-            {renderList()}
-            {showFixed && renderList(true)}
+            <div ref={elementRef}>
+                <Scrollbars autoHeight={true}>{renderList()}</Scrollbars>
+            </div>
+
+            <FixedCategories show={!isVisible}>
+                <Scrollbars autoHeight={true}>{renderList()}</Scrollbars>
+            </FixedCategories>
         </>
     );
 };
