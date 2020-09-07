@@ -2,11 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Context from './Context';
 
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import {
+    ApolloProvider,
+    ApolloClient,
+    from,
+    HttpLink,
+    InMemoryCache,
+} from '@apollo/client';
+
+import { authMiddleware } from './apollo/links/authMiddleware';
+import { errorMiddleware } from './apollo/links/errorMiddleware';
 
 const client = new ApolloClient({
-    uri: 'https://petgram-server-hmcpzh3ov.vercel.app/graphql',
     cache: new InMemoryCache(),
+    link: from([
+        errorMiddleware,
+        authMiddleware,
+        new HttpLink({
+            uri: 'https://petgram-server-hmcpzh3ov.vercel.app/graphql',
+        }),
+    ]),
 });
 
 import { App } from './App';

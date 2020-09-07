@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { NProgressBar } from './nprogress';
+import { Swal } from './swal';
 
 export const GlobalStyles = createGlobalStyle`
     html {
@@ -42,5 +43,6 @@ export const GlobalStyles = createGlobalStyle`
         min-height: 100vh;
     }
 
+    ${Swal}
     ${NProgressBar}
 `;

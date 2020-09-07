@@ -1,25 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PhotoCard } from '../components/PhotoCard';
-import { useStorageArray } from '../hooks';
 import { useLikeMutation } from '../dataHooks/useLikeMutation';
 
 export const PetCard = (props) => {
     const { id } = props;
 
-    const [likeAnonymousPhoto] = useLikeMutation();
-    const [storedLikes, storeLike, unstoreLike] = useStorageArray('likes');
-    const [liked, setLiked] = useState(storedLikes.includes(id));
+    const [likePhoto] = useLikeMutation();
 
     function toggleLike() {
-        if (liked) {
-            unstoreLike(id);
-            setLiked(false);
-        } else {
-            storeLike(id);
-            likeAnonymousPhoto({ variables: { input: { id } } });
-            setLiked(true);
-        }
+        likePhoto({ variables: { input: { id } } });
     }
 
-    return <PhotoCard {...props} liked={liked} toggleLike={toggleLike} />;
+    return <PhotoCard {...props} liked={props.liked} toggleLike={toggleLike} />;
 };

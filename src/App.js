@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Router } from '@reach/router';
 import { GlobalStyles } from './styles/globalStyles';
 
@@ -12,9 +12,11 @@ import { User } from './pages/User';
 import { NotRegisteredUser } from './pages/NotRegisteredUser';
 import { NavBar } from './components/NavBar/';
 
-import Context from './Context';
+import { Context } from './Context';
 
 export const App = () => {
+    const { isAuth } = useContext(Context);
+
     return (
         <>
             <GlobalStyles />
@@ -30,21 +32,17 @@ export const App = () => {
                     <Home path="/pet/:categoryId" />
                     <Detail path="/detail/:petId" />
                 </Router>
-                <Context.Consumer>
-                    {({ isAuth }) =>
-                        isAuth ? (
-                            <Router>
-                                <Favs path="/favs" />
-                                <User path="/user" />
-                            </Router>
-                        ) : (
-                            <Router>
-                                <NotRegisteredUser path="/favs" />
-                                <NotRegisteredUser path="/user" />
-                            </Router>
-                        )
-                    }
-                </Context.Consumer>
+                {isAuth ? (
+                    <Router>
+                        <Favs path="/favs" />
+                        <User path="/user" />
+                    </Router>
+                ) : (
+                    <Router>
+                        <NotRegisteredUser path="/favs" />
+                        <NotRegisteredUser path="/user" />
+                    </Router>
+                )}
             </Scrollbars>
 
             <NavBar />

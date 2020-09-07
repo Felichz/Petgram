@@ -36,25 +36,6 @@ export const CategoryList = () => {
 
     const [isVisible, elementRef] = useIsVisible();
 
-    if (elementRef.current) {
-        console.log(elementRef.current);
-    }
-
-    // useEffect(() => {
-    //     const onScroll = () => {
-    //         const currentShowFixed = window.scrollY > 200;
-    //         if (showFixed !== currentShowFixed) {
-    //             setShowFixed(currentShowFixed);
-    //         }
-    //     };
-
-    //     document.addEventListener('scroll', onScroll);
-
-    //     return () => {
-    //         document.removeEventListener('scroll', onScroll);
-    //     };
-    // });
-
     const categoriesArray = loading ? [1, 2, 3, 4, 5] : categories;
 
     const renderList = () => (
