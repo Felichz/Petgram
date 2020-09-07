@@ -28,7 +28,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background: #fefefe;
+        background: linear-gradient(90deg, #e05e0370, #fe02fa70);
         min-height: 100vh;
         margin: 0 auto;
         max-width: 500px;
@@ -38,6 +38,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     #root {
+        background: #fefefe;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
         /* overflow-x: hidden; */
         min-height: 100vh;
