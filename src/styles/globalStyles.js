@@ -21,6 +21,10 @@ export const GlobalStyles = createGlobalStyle`
         list-style: none;
     }
 
+    a {
+        outline: none;
+    }
+
     button {
         background: transparent;
         border: 0;

@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Router } from '@reach/router';
+import { Router, Redirect } from '@reach/router';
 import { GlobalStyles } from './styles/globalStyles';
 
 import { Scrollbars } from 'react-custom-scrollbars';
 import { Logo } from './components/Logo';
 import { CategoryList } from './components/CategoryList/';
+import { NotFound } from './pages/NotFound';
 import { Home } from './pages/Home';
 import { Detail } from './pages/Detail';
 import { Favs } from './pages/Favs';
@@ -28,21 +29,20 @@ export const App = () => {
                 <Logo />
                 <CategoryList />
                 <Router>
+                    <NotFound default />
+
                     <Home path="/" />
                     <Home path="/pet/:categoryId" />
                     <Detail path="/detail/:petId" />
+
+                    {!isAuth && <NotRegisteredUser path="/login" />}
+                    {!isAuth && <Redirect from="/favs" to="/login" />}
+                    {!isAuth && <Redirect from="/user" to="/login" />}
+                    {isAuth && <Redirect from="/login" to="/" />}
+
+                    <Favs path="/favs" />
+                    <User path="/user" />
                 </Router>
-                {isAuth ? (
-                    <Router>
-                        <Favs path="/favs" />
-                        <User path="/user" />
-                    </Router>
-                ) : (
-                    <Router>
-                        <NotRegisteredUser path="/favs" />
-                        <NotRegisteredUser path="/user" />
-                    </Router>
-                )}
             </Scrollbars>
 
             <NavBar />
