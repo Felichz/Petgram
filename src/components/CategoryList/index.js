@@ -16,7 +16,7 @@ function useCategoriesData() {
             NProgress.start();
 
             const res = await fetch(
-                'https://petgram-server-fb1bpd83d.vercel.app/categories'
+                'https://petgram-server-hmcpzh3ov.vercel.app/categories'
             );
 
             const data = await res.json();

@@ -35,13 +35,19 @@ export const App = () => {
                     <Home path="/pet/:categoryId" />
                     <Detail path="/detail/:petId" />
 
-                    {!isAuth && <NotRegisteredUser path="/login" />}
-                    {!isAuth && <Redirect from="/favs" to="/login" />}
-                    {!isAuth && <Redirect from="/user" to="/login" />}
-                    {isAuth && <Redirect from="/login" to="/" />}
-
-                    <Favs path="/favs" />
-                    <User path="/user" />
+                    {isAuth ? (
+                        <>
+                            <Redirect from="/login" to="/" noThrow />
+                            <Favs path="/favs" />
+                            <User path="/user" />
+                        </>
+                    ) : (
+                        <>
+                            <NotRegisteredUser path="/login" />
+                            <Redirect from="/favs" to="/login" noThrow />
+                            <Redirect from="/user" to="/login" noThrow />
+                        </>
+                    )}
                 </Router>
             </Scrollbars>
 
