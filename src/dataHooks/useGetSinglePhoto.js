@@ -18,6 +18,6 @@ export function useGetSinglePhoto(id) {
 
     return {
         ...res,
-        photo: res.data ? res.data.photo : {},
+        photo: res.data && res.data.photo,
     };
 }
