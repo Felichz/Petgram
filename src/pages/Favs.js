@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import { FavList } from '../dataContainers/FavList';
 import { ContentLayout } from './ContentLayout';
 
-export const Favs = () => (
+const Favs = () => (
     <ContentLayout title="Favorites" subtitle="Your personal favorite list.">
         <Helmet>
             <meta name="description" content="Your personal favorite list." />
@@ -12,3 +12,5 @@ export const Favs = () => (
         <FavList />
     </ContentLayout>
 );
+
+export default Favs;

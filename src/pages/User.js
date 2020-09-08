@@ -9,8 +9,10 @@ const LogoutButton = styled(SubmitButton)`
     margin: 0 auto;
 `;
 
-export const User = () => (
+const User = () => (
     <ContentLayout title="User">
         <LogoutButton onClick={userSession.logout}>Logout</LogoutButton>
     </ContentLayout>
 );
+
+export default User;

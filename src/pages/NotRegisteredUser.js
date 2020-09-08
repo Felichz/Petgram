@@ -7,7 +7,7 @@ import { Hr } from './styles';
 import { useRegisterMutation } from '../dataHooks/useRegisterMutation';
 import { useLoginMutation } from '../dataHooks/useLoginMutation';
 
-export const NotRegisteredUser = () => {
+const NotRegisteredUser = () => {
     const { activateAuth } = useContext(Context);
 
     const [registerMutation, { loading: loadingA }] = useRegisterMutation();
@@ -71,3 +71,5 @@ export const NotRegisteredUser = () => {
         </>
     );
 };
+
+export default NotRegisteredUser;

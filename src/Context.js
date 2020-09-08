@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { client } from './apollo/client';
 
 export const Context = createContext();
@@ -32,6 +33,10 @@ const Provider = ({ children }) => {
     };
 
     return <Context.Provider value={value}>{children}</Context.Provider>;
+};
+
+Provider.propTypes = {
+    children: PropTypes.node.isRequired,
 };
 
 export default {

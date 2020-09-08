@@ -16,7 +16,9 @@ const HomeComponent = ({ categoryId }) => (
     </ContentLayout>
 );
 
-export const Home = React.memo(
+const Home = React.memo(
     HomeComponent,
     (prevProps, props) => prevProps.categoryId === props.categoryId
 );
+
+export default Home;

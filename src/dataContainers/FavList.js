@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { useGetFavs } from '../dataHooks/useGetFavs';
-
 import { FavList as FavListComponent } from '../components/FavList';
 
 export const FavList = () => {

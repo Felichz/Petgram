@@ -6,6 +6,7 @@
     "vercel-build": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
+    "serve:prod": "webpack --mode production && npx serve dist -s",
     "serve:dev": "webpack --mode development && npx serve dist -s",
     "start": "webpack-dev-server",
     "start:prod": "webpack-dev-server --mode production",
@@ -37,7 +38,8 @@
     "prettier": "2.1.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-pwa-manifest": "^4.2.0"
   },
   "dependencies": {
     "@apollo/client": "^3.1.4",
@@ -46,6 +48,7 @@
     "graphql": "^15.3.0",
     "intersection-observer": "^0.11.0",
     "nprogress": "^0.2.0",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.13.1",
