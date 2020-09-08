@@ -31,7 +31,7 @@ function useCategoriesData() {
     return { categories, loading };
 }
 
-export const CategoryList = () => {
+const CategoryListComponent = () => {
     const { categories, loading } = useCategoriesData();
 
     const [isVisible, elementRef] = useIsVisible();
@@ -60,3 +60,5 @@ export const CategoryList = () => {
         </>
     );
 };
+
+export const CategoryList = React.memo(CategoryListComponent);

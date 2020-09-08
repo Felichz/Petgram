@@ -18,10 +18,6 @@ export const Link = styled(LinkRouter)`
     }
 `;
 
-export const Grid = styled.div`
-    padding-top: 32px;
-`;
-
 export const Img = styled.img`
     object-fit: cover;
     height: 100%;

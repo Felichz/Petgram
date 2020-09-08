@@ -1,8 +1,6 @@
 import React from 'react';
-import { Content } from './styles';
+import { ContentLayout } from './ContentLayout';
 
 export const NotFound = () => (
-    <Content>
-        <h1>This page does not exist :(</h1>
-    </Content>
+    <ContentLayout title="This page does not exist :(" />
 );

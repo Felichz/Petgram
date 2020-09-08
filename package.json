@@ -6,6 +6,7 @@
     "vercel-build": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
+    "serve:dev": "webpack --mode development && npx serve dist -s",
     "start": "webpack-dev-server",
     "start:prod": "webpack-dev-server --mode production",
     "lint": "eslint ./src",
@@ -48,6 +49,7 @@
     "react": "^16.13.1",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
     "react-icons": "^3.11.0",
     "styled-components": "^5.1.1",
     "sweetalert": "^2.1.2"

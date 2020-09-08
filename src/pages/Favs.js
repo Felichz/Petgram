@@ -1,12 +1,14 @@
 import React from 'react';
 
+import { Helmet } from 'react-helmet';
 import { FavList } from '../dataContainers/FavList';
-
-import { Content } from './styles';
+import { ContentLayout } from './ContentLayout';
 
 export const Favs = () => (
-    <Content>
-        <h1>Favs</h1>
+    <ContentLayout title="Favorites" subtitle="Your personal favorite list.">
+        <Helmet>
+            <meta name="description" content="Your personal favorite list." />
+        </Helmet>
         <FavList />
-    </Content>
+    </ContentLayout>
 );
