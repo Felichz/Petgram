@@ -8,7 +8,7 @@
     "build": "webpack --mode production",
     "serve:prod": "webpack --mode production && npx serve dist -s",
     "serve:dev": "webpack --mode development && npx serve dist -s",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --mode development",
     "start:prod": "webpack-dev-server --mode production",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix"
