@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petgram</title>
+    <title>Petgram 🐱</title>
 </head>
 
 <body>
@@ -12,17 +12,6 @@
     <noscript>
         <h3>This app needs Javascript enabled to work.</h3>
     </noscript>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js').then(registration => {
-                    console.log('Service worker registered');
-                }).catch(err => {
-                    console.log('Error on service worker registration', err);
-                })
-            });
-        }
-    </script>
 </body>
 
 </html>

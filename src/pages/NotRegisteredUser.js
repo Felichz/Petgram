@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { Context } from '../Context';
 
+import { Context } from '../Context';
+import { HelmetConfig } from './HelmetConfig';
 import { UserForm } from '../components/UserForm';
 import { Hr } from './styles';
 
@@ -55,6 +56,10 @@ const NotRegisteredUser = () => {
 
     return (
         <>
+            <HelmetConfig
+                title="Authentication"
+                description="Register account or login with your existing account."
+            />
             <UserForm
                 type="register"
                 onSubmit={(formData) => register(formData)}

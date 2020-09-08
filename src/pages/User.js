@@ -10,7 +10,11 @@ const LogoutButton = styled(SubmitButton)`
 `;
 
 const User = () => (
-    <ContentLayout title="User">
+    <ContentLayout
+        title="User"
+        subtitle={'Your user profile and account settings.'}
+        showSubtitle={false}
+    >
         <LogoutButton onClick={userSession.logout}>Logout</LogoutButton>
     </ContentLayout>
 );

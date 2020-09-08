@@ -11,7 +11,7 @@ export const client = new ApolloClient({
         errorMiddleware,
         authMiddleware,
         new HttpLink({
-            uri: 'https://petgram-server-hmcpzh3ov.vercel.app/graphql',
+            uri: 'https://petgram-server.felichz.vercel.app/graphql',
         }),
     ]),
 });

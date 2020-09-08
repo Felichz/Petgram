@@ -1,29 +1,35 @@
 import React from 'react';
-import { Content } from './styles';
-import { Helmet } from 'react-helmet';
+import PropTypes from 'prop-types';
 
-export const ContentLayout = ({ children, title, subtitle, helmet = true }) => {
+import { Content } from './styles';
+import { HelmetConfig } from './HelmetConfig';
+
+export const ContentLayout = ({
+    children,
+    title,
+    subtitle,
+    showSubtitle = true,
+    helmet = true,
+}) => {
     return (
         <>
-            {helmet && (
-                <Helmet>
-                    {title ? (
-                        <title>Petgram 🐱| {title}</title>
-                    ) : (
-                        <title>Petgram 🐱</title>
-                    )}
-
-                    {subtitle && <meta name="description" content={subtitle} />}
-                </Helmet>
-            )}
+            {helmet && <HelmetConfig title={title} description={subtitle} />}
 
             <Content>
                 <div>
-                    {title && <h1>{title}</h1>}
-                    {subtitle && <h2>{subtitle}</h2>}
+                    <h1>{title}</h1>
+                    {subtitle && showSubtitle && <h2>{subtitle}</h2>}
                     {children}
                 </div>
             </Content>
         </>
     );
+};
+
+ContentLayout.propTypes = {
+    children: PropTypes.node.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    showSubtitle: PropTypes.bool,
+    helmet: PropTypes.bool,
 };

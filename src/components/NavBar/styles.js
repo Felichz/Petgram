@@ -31,7 +31,7 @@ export const Link = styled(LinkRouter)`
     text-decoration: none;
     color: #888;
 
-    &[aria-current] {
+    &[aria-current]:not(.preventActive) {
         color: black;
 
         &:after {

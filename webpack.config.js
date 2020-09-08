@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -18,6 +19,7 @@ module.exports = (env, { mode }) => {
         plugins: [
             new HtmlWebpackPlugin({
                 template: 'src/index.html',
+                isDev,
             }),
             !isDev &&
                 new WebpackPwaManifestPlugin({
@@ -65,6 +67,9 @@ module.exports = (env, { mode }) => {
                         },
                     ],
                 }),
+            new webpack.DefinePlugin({
+                'process.env.NODE_ENV': JSON.stringify('development'),
+            }),
         ],
         module: {
             rules: [
