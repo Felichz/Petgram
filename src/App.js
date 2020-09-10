@@ -3,7 +3,9 @@ import { Router, Redirect } from '@reach/router';
 import { GlobalStyles } from './styles/globalStyles';
 
 import { Scrollbars } from 'react-custom-scrollbars';
+import { Header } from './components/Header';
 import { Logo } from './components/Logo';
+import { SourceCodeLink } from './components/SourceCodeLink';
 import { CategoryList } from './components/CategoryList/';
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 const Home = React.lazy(() => import('./pages/Home'));
@@ -26,7 +28,11 @@ export const App = () => {
                 style={{ height: 'calc(100vh - 50px)', width: '100%' }}
                 autoHide={true}
             >
-                <Logo />
+                <Header>
+                    <Logo />
+                    <SourceCodeLink />
+                </Header>
+
                 <CategoryList />
                 <Router>
                     <NotFound default />
