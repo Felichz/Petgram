@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { bounceTranslation } from '../../styles/animations';
 
 export const FixedCategories = styled.div`
+    overflow: hidden;
     background: #fff;
     border-radius: 0px 0px 60px 60px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
